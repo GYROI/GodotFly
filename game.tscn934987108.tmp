@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://3y6stw172imd"]
+
+[ext_resource type="Texture2D" uid="uid://dgajldcp7gwt5" path="res://Texts/background.bmp" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bf4x20dfxnlf7" path="res://game_mechs.gd" id="1_e2o6t"]
+[ext_resource type="FontFile" uid="uid://bf7o4rr0uw8ba" path="res://Fonts/PricedownBl-Regular 900.ttf" id="3_fc0e3"]
+
+[sub_resource type="GDScript" id="GDScript_feb5d"]
+script/source = "extends Label
+
+func _process(delta):
+	self.text = str(Global.score)
+
+func _on_label_gui_input(event):
+	Global.score += 1
+"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_e2o6t")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(298, 493)
+scale = Vector2(0.809458, 0.803125)
+texture = ExtResource("1_80nbo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 381.0
+offset_right = 521.0
+offset_bottom = 508.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fc0e3")
+theme_override_font_sizes/font_size = 51
+script = SubResource("GDScript_feb5d")
+
+[connection signal="gui_input" from="Label" to="." method="_on_label_gui_input"]

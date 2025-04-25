@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://7bysxp4wmdmf"]
+
+[ext_resource type="Texture2D" uid="uid://dgajldcp7gwt5" path="res://Texts/background.bmp" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bwgqxt7plp0bs" path="res://close_game.gd" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://dranaq2hb4rlj" path="res://Texts/Atas_bawah.bmp" id="3_fc0e3"]
+[ext_resource type="Script" uid="uid://cgv1ug5xkrpwg" path="res://generate.gd" id="3_feb5d"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_e2o6t")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(290, 458)
+scale = Vector2(0.907139, 0.830976)
+texture = ExtResource("1_80nbo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(282, 623)
+scale = Vector2(0.499927, 0.499927)
+texture = ExtResource("3_fc0e3")
+script = ExtResource("3_feb5d")
